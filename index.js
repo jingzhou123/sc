@@ -12,15 +12,24 @@ $(function() {
   var $predictedRisk = $('#scPredictedRisk')
   var $predictedLoss = $('#scPredictedLoss')
 
-  $chance.val(0.5)
+  $chance.val(0.17)
   $stop.val(2)
   $cash.val(600000)
 
-  $open.on('change', renderCalc)
-  $support.on('change', renderCalc)
-  $stop.on('change', renderCalc)
-  $chance.on('change', renderCalc)
-  $cash.on('change', renderCalc)
+  $open.on('change', renderRes)
+  $support.on('change', renderRes)
+  $stop.on('change', renderRes)
+  $chance.on('change', renderRes)
+  $cash.on('change', renderRes)
+
+  function renderRes() {
+    if ($open.val() && $support.val() && $stop.val() && $chance.val() && $cash.val()) {
+      renderCalc()
+      $('.alert').show()
+    } else {
+      $('.alert').hide()
+    }
+  }
 
   function renderCalc() {
     const res = calc(

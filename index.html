@@ -22,19 +22,33 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="alert alert-primary" role="alert">
-                        <span>买进股数：</span>
-                        <span id="sc-quant">0</span>
-                        <span>金额￥：</span>
-                        <span id="sc-money">0</span>
-                        <span>止损￥：</span>
-                        <span id="sc-stopPrice">0</span>
-                        <span>买进￥：</span>
-                        <span id="sc-buyP">0</span>
-                        <span>预计亏损￥：</span>
-                        <span id="scPredictedLoss">0</span>
-                        <span>预计风险%：</span>
-                        <span id="scPredictedRisk">0</span>
+                    <div class="alert alert-primary" style="display:none" role="alert">
+                        <div>
+                            买进股数：
+                            <span id="sc-quant">0</span>
+                        </div>
+                        <div>
+                            买进金额：
+                            <span id="sc-money">0</span>
+                        </div>
+                        <div>
+                            买入价：
+                            <span id="sc-buyP">0</span>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger" style="display:none" role="alert">
+                        <div>
+                            止损价：
+                            <span id="sc-stopPrice">0</span>
+                        </div>
+                        <div>
+                            预计亏损金额：
+                            <span id="scPredictedLoss">0</span>
+                        </div>
+                        <div>
+                            预计风险：
+                            <span id="scPredictedRisk">0</span>%
+                        </div>
                     </div>
                     <form>
                         <div class="form-row">
