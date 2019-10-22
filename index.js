@@ -36,7 +36,7 @@ $(function() {
       return [0, 0, 0]
     } else {
       var sss = support - open * ss / 100
-      var quant = (open - sss) / chance / 100 * cc 
+      var quant = (open - sss) / chance * 100 * cc 
       var qq = Math.floor(quant /100) * 100
       var ccc = qq * o
       return [qq, ccc, sss]
