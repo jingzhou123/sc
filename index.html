@@ -1,1 +1,66 @@
-Hello, world
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SC</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/index.js"></script>
+    <div id="app">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">买入量计算器</a>
+            </li>
+        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-primary" role="alert">
+                        <span>买进股数：</span>
+                        <span id="sc-quant">0</span>
+                        <span>金额￥：</span>
+                        <span id="sc-money">0</span>
+                        <span>止损￥：</span>
+                        <span id="sc-stopPrice">0</span>
+                        <span>买进￥：</span>
+                        <span id="sc-buyP">0</span>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="sc-openPrice">买进价</label>
+                            <input type="text" class="form-control" id="sc-openPrice" placeholder="请输入买进价位">
+                        </div>
+                        <div class="form-group">
+                            <label for="sc-supportPrice">支撑价</label>
+                            <input type="text" class="form-control" id="sc-supportPrice" placeholder="请输入支撑价位">
+                        </div>
+                        <div class="form-group">
+                            <label for="sc-supportPrice">止损百分比</label>
+                            <input type="text" class="form-control" id="sc-stop" placeholder="请输入数字，单位为百分比，例如2">
+                            <small class="form-text text-muted">
+                                跌破支撑价后多亏损x%为止损位
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="sc-chance">风险</label>
+                            <input type="text" class="form-control" id="sc-chance" placeholder="每笔亏损占总金融的百分比，如0.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="sc-buyCash">总金额</label>
+                            <input class="form-control" id="sc-buyCash" placeholder="请输入买入金额">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
