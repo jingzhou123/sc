@@ -53,17 +53,14 @@ $(function() {
     var ss = +stop
     var c = +chance
     var cc = +cash
-    if (isNaN(o) || isNaN(s) || isNaN(ss) || isNaN(c) || isNaN(cc)) {
-      return [0, 0, 0]
-    } else {
-      var sss = (support - (open * ss) / 100)
-      var quant = cc * c / 100 / (open - sss)
-      var qq = Math.floor(quant / 100) * 100
-      var ccc = qq * o
-      var predictedRisk = qq * (open - sss) / cc * 100
-      var predictedLoss = qq * (open - sss)
 
-      return [qq, ccc, sss, predictedRisk, predictedLoss]
-    }
+    var sss = (support - (open * ss) / 100)
+    var quant = cc * c / 100 / (open - sss)
+    var qq = Math.floor(quant / 100) * 100
+    var ccc = qq * o
+    var predictedRisk = qq * (open - sss) / cc * 100
+    var predictedLoss = qq * (open - sss)
+
+    return [qq, ccc, sss, predictedRisk, predictedLoss]
   }
 })
