@@ -25,6 +25,7 @@ $(function() {
   $stop.on('change', renderRes)
   $risk.on('change', renderRes)
   $cash.on('change', renderRes)
+  $compartment.on('change', renderRes)
 
   $btnOpenPrice.on('click', clearOpenPrice)
   $btnSupportPrice.on('click', clearSupportPrice)
