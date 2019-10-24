@@ -11,6 +11,8 @@ $(function() {
   var $buyPrice = $('#sc-buyP')
   var $predictedRisk = $('#scPredictedRisk')
   var $predictedLoss = $('#scPredictedLoss')
+  var $btnOpenPrice = $('#scBtnClearOpenPrice');
+  var $btnSupportPrice = $('#scBtnClearSupportPrice');
 
   $chance.val(0.17)
   $stop.val(2)
@@ -21,6 +23,17 @@ $(function() {
   $stop.on('change', renderRes)
   $chance.on('change', renderRes)
   $cash.on('change', renderRes)
+
+  $btnOpenPrice.on('click', clearOpenPrice)
+  $btnSupportPrice.on('click', clearSupportPrice)
+
+  function clearOpenPrice() {
+    $open.val('')
+  }
+
+  function clearSupportPrice() {
+    $support.val('')
+  }
 
   function renderRes() {
     if ($open.val() && $support.val() && $stop.val() && $chance.val() && $cash.val()) {
