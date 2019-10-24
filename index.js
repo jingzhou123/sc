@@ -11,12 +11,14 @@ $(function() {
   var $buyPrice = $('#sc-buyP')
   var $predictedRisk = $('#scPredictedRisk')
   var $predictedLoss = $('#scPredictedLoss')
+  var $compartment = $('#scCompartment')
   var $btnOpenPrice = $('#scBtnClearOpenPrice');
   var $btnSupportPrice = $('#scBtnClearSupportPrice');
 
-  $chance.val(0.17)
+  $chance.val(0.5)
   $stop.val(2)
   $cash.val(600000)
+  $compartment.val(3)
 
   $open.on('change', renderRes)
   $support.on('change', renderRes)
@@ -50,7 +52,8 @@ $(function() {
       $support.val(),
       $stop.val(),
       $chance.val(),
-      $cash.val()
+      $cash.val(),
+      $compartment.val()
     )
     $quant.text(res[0])
     $money.text(res[1])
@@ -60,15 +63,16 @@ $(function() {
     $predictedLoss.text(res[4].toFixed(2))
   }
 
-  function calc(open, support, stop, chance, cash) {
+  function calc(open, support, stop, chance, cash, compartment) {
     var o = +open
     var s = +support
     var ss = +stop
     var c = +chance
     var cc = +cash
+    compartment = +compartment;
 
     var sss = (support - (open * ss) / 100)
-    var quant = cc * c / 100 / (open - sss)
+    var quant = cc * (c / compartment) / 100 / (open - sss)
     var qq = Math.floor(quant / 100) * 100
     var ccc = qq * o
     var predictedRisk = qq * (open - sss) / cc * 100
