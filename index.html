@@ -53,25 +53,25 @@
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="sc-openPrice">买进价</label>
+                                <label for="sc-openPrice">买进价：￥</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="sc-openPrice" placeholder="请输入买进价位">
+                                    <input tabindex="1" type="text" class="form-control" id="sc-openPrice" placeholder="请输入买进价位">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="button" id="scBtnClearOpenPrice">X</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="sc-supportPrice">支撑价</label>
+                                <label for="sc-supportPrice">支撑价：￥</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="sc-supportPrice" placeholder="请输入支撑价位">
+                                    <input tabindex="2" type="text" class="form-control" id="sc-supportPrice" placeholder="请输入支撑价位">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="button" id="scBtnClearSupportPrice">X</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="sc-supportPrice">止损百分比</label>
+                                <label for="sc-supportPrice">止损：%</label>
                                 <input type="text" class="form-control" id="sc-stop" placeholder="请输入数字，单位为百分比，例如2">
                                 <small class="form-text text-muted">
                                     跌破支撑价后多亏损x%为止损位
@@ -87,11 +87,14 @@
                                 </small>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="sc-chance">风险</label>
-                                <input type="text" class="form-control" id="sc-chance" placeholder="每笔亏损占总金融的百分比，如0.5">
+                                <label for="scRisk">风险：%</label>
+                                <input type="text" class="form-control" id="scRisk" placeholder="每笔亏损占总金融的百分比，如0.5">
+                                <small class="form-text text-muted">
+                                    不分仓的话，单笔交易的风险
+                                </small>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="sc-buyCash">总金额</label>
+                                <label for="sc-buyCash">总金额：￥</label>
                                 <input class="form-control" id="sc-buyCash" placeholder="请输入买入金额">
                             </div>
                         </div>

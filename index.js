@@ -3,7 +3,7 @@ $(function() {
   var $open = $('#sc-openPrice')
   var $support = $('#sc-supportPrice')
   var $stop = $('#sc-stop')
-  var $chance = $('#sc-chance')
+  var $risk = $('#scRisk')
   var $cash = $('#sc-buyCash')
   var $quant = $('#sc-quant')
   var $money = $('#sc-money')
@@ -15,7 +15,7 @@ $(function() {
   var $btnOpenPrice = $('#scBtnClearOpenPrice');
   var $btnSupportPrice = $('#scBtnClearSupportPrice');
 
-  $chance.val(0.5)
+  $risk.val(0.5)
   $stop.val(2)
   $cash.val(600000)
   $compartment.val(3)
@@ -23,7 +23,7 @@ $(function() {
   $open.on('change', renderRes)
   $support.on('change', renderRes)
   $stop.on('change', renderRes)
-  $chance.on('change', renderRes)
+  $risk.on('change', renderRes)
   $cash.on('change', renderRes)
 
   $btnOpenPrice.on('click', clearOpenPrice)
@@ -38,7 +38,7 @@ $(function() {
   }
 
   function renderRes() {
-    if ($open.val() && $support.val() && $stop.val() && $chance.val() && $cash.val()) {
+    if ($open.val() && $support.val() && $stop.val() && $risk.val() && $cash.val()) {
       renderCalc()
       $('.alert').show()
     } else {
@@ -51,7 +51,7 @@ $(function() {
       $open.val(),
       $support.val(),
       $stop.val(),
-      $chance.val(),
+      $risk.val(),
       $cash.val(),
       $compartment.val()
     )
@@ -63,21 +63,21 @@ $(function() {
     $predictedLoss.text(res[4].toFixed(2))
   }
 
-  function calc(open, support, stop, chance, cash, compartment) {
-    var o = +open
-    var s = +support
-    var ss = +stop
-    var c = +chance
-    var cc = +cash
+  function calc(open, support, stop, risk, cash, compartment) {
+    open = +open
+    support = +support
+    stop = +stop
+    risk = +risk
+    cash = +cash
     compartment = +compartment;
 
-    var sss = (support - (open * ss) / 100)
-    var quant = cc * (c / compartment) / 100 / (open - sss)
-    var qq = Math.floor(quant / 100) * 100
-    var ccc = qq * o
-    var predictedRisk = qq * (open - sss) / cc * 100
-    var predictedLoss = qq * (open - sss)
+    var actualStop = (support - (open * stop) / 100)
+    var quant = cash * (risk / compartment) / 100 / (open - actualStop)
+    var lot = Math.floor(quant / 100) * 100
+    var usedCash = lot * open
+    var predictedRisk = lot * (open - actualStop) / cash * 100
+    var predictedLoss = lot * (open - actualStop)
 
-    return [qq, ccc, sss, predictedRisk, predictedLoss]
+    return [lot, usedCash, actualStop, predictedRisk, predictedLoss]
   }
 })
