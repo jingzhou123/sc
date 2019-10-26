@@ -1,28 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>期货风险计算器</title>
+    <title>期货投资风险计算器</title>
     <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./future.js?time=1"></script>
 
     <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link" href="./index.html">股票风险计算器</a>
+            <a class="nav-link" href="./index.html">股票投资风险计算器</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="#">期货风险计算器</a>
+            <a class="nav-link active" href="#">期货投资风险计算器</a>
         </li>
     </ul>
 
-    <h1>敬请期待</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-primary" style="display:none" role="alert">
+                    <div>
+                        买进手数：
+                        <span id="scPredictedSlot">0</span>
+                    </div>
+                    <div style="display:none">
+                        买进金额：
+                        <span id="scPredictedUsedCash">0</span>
+                    </div>
+                    <div>
+                        买入价：
+                        <span id="scPredictedBuyPrice">0</span>
+                    </div>
+                </div>
+                <div class="alert alert-danger" style="display:none" role="alert">
+                    <div>
+                        预计止损价：
+                        <span id="scPredictedStopPrice">0</span>
+                    </div>
+                    <div>
+                        预计亏损金额：
+                        <span id="scPredictedLoss">0</span>
+                    </div>
+                    <div>
+                        预计风险：
+                        <span id="scPredictedRisk">0</span>%
+                    </div>
+                </div>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="scOpenPrice">买进价：￥</label>
+                            <div class="input-group">
+                                <input tabindex="1" type="text" class="form-control" id="scOpenPrice"
+                                    placeholder="请输入买进价位">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        id="scBtnClearOpenPrice">X</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="scSupportPrice">支撑价：￥</label>
+                            <div class="input-group">
+                                <input tabindex="2" type="text" class="form-control" id="scSupportPrice"
+                                    placeholder="请输入支撑价位">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        id="scBtnClearSupportPrice">X</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="scSlotQuant">每手数量：例如吨</label>
+                            <input type="text" class="form-control" id="scSlotQuant" placeholder="请输入整数">
+                            <small class="form-text text-muted">
+                                每种合约1手对应不同的商品数量，例如10吨，10桶等等
+                            </small>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="scStopJump">止损：￥</label>
+                            <input type="text" class="form-control" id="scStopJump" placeholder="请输入整数，单位为跳，例如2">
+                            <small class="form-text text-muted">
+                                跌破支撑价后多亏损X元为止损位，例如某个支撑价格为3000元，填写20，则在2980止损
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="scCompartment">分仓</label>
+                            <input type="text" class="form-control" id="scCompartment">
+                            <small class="form-text text-muted">
+                                分仓数量，平滑收益波动
+                            </small>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="scRisk">风险：%</label>
+                            <input type="text" class="form-control" id="scRisk" placeholder="每笔亏损占总金融的百分比，如0.5">
+                            <small class="form-text text-muted">
+                                不分仓的话，单笔交易的风险
+                            </small>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="scBuyCash">总金额：￥</label>
+                            <input class="form-control" id="scBuyCash" placeholder="请输入买入金额">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 
