@@ -10,6 +10,12 @@ app.controller('formCtrl', ['$scope', function ($scope) {
     }
 
     $scope.calcPrice = function () {
-        $scope.price = $scope.totalPrice / $scope.area * 10000;
+        $scope.price = $scope.totalPrice / $scope.area;
     }
+
+    $scope.pad10k = function () {
+        $scope.totalPrice = $scope.totalPrice * 10000
+        $scope.calcPrice()
+    }
+
 }])
