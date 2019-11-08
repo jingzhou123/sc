@@ -5,7 +5,11 @@ app.controller('formCtrl', ['$scope', function ($scope) {
     $scope.area = 280
     $scope.totalPrice = $scope.price * $scope.area;
 
-    $scope.calc = function () {
+    $scope.calcTotalPrice = function () {
         $scope.totalPrice = $scope.price * $scope.area;
+    }
+
+    $scope.calcPrice = function () {
+        $scope.price = $scope.totalPrice / $scope.area * 10000;
     }
 }])

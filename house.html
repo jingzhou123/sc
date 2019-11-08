@@ -15,14 +15,15 @@
     <script src="./house.js"></script>
     <div id="app" ng-app="app">
         <div ng-controller="formCtrl">
+            <p>输入单价或面积时，计算的是总价；输入总价时，计算的是单价</p>
             <div>
-                单价：<input ng-model="price" ng-change="calc()" />
+                单价：<input ng-model="price" ng-change="calcTotalPrice()" />
             </div>
             <div>
-                面积：<input ng-model="area" ng-change="calc()" />
+                面积：<input ng-model="area" ng-change="calcTotalPrice()" />
             </div>
             <div>
-                总价：￥{{totalPrice}}
+                总价：<input ng-model="totalPrice" ng-change="calcPrice()" />
             </div>
         </div>
 
