@@ -50,8 +50,30 @@
                     业主购买单价（元每平）<input type='text' ng-model='originUnitPrice' ng-change="calcTax()" />
                 </label>
                 <label>
-                    <input type='checkbox' ng-model='over2years' ng-change="calcTax()" />房产证下发是否满两年
+                    <input type='checkbox' ng-model='over2years' ng-change="calcTax()" />房产证下发是否满两年（满二）
                 </label>
+
+
+                <h2>个税(万）：{{incomePrice}}</h2>
+                <label>
+                    个税税率%<input type='text' ng-model='incomeTax' ng-change="calcTax()" />
+                </label>
+                <label>
+                    原契税（房主购买时缴纳契税）<input type='text' ng-model='originDeedPrice' ng-change="calcTax()" />
+                </label>
+                <label>
+                    银行利息<input type='text' ng-model='interestPrice' ng-change="calcTax()" />
+                </label>
+                <label>
+                    <input type='checkbox' ng-model='over5yearsAndOnlyOne' ng-change="calcTax()" />房产证下发是否满五年且是唯一住房（满五唯一）
+                </label>
+
+                <h2>中介费(万）：{{brokeragePrice}}</h2>
+                <label>
+                    费率%<input type='text' ng-model='brokerage' ng-change="calcTax()" />
+                </label>
+
+                <h2>总税费(万）：{{allPrice}}</h2>
             </div>
         </div>
 
