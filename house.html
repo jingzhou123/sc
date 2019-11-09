@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>房产贷款计算器</title>
+    <link rel="stylesheet" href="./house.css">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     <script src="https://cdn.bootcss.com/angular.js/1.7.8/angular.min.js"></script>
     <script src="./house.js"></script>
     <div id="app" ng-app="app">
-        <div ng-controller="formCtrl">
+        <div ng-controller="formCtrl" class="house">
             <h1>价格计算器</h1>
             <p>输入单价或面积时，计算的是总价；输入总价时，计算的是单价</p>
             <div>
@@ -29,8 +30,13 @@
             </div>
             <h1>税费计算器</h1>
             <div>
-                网签价<input type='text' ng-model='netPrice' ng-change="calcTax()" />
-                最低过户指导价<input type='text' ng-model='handoverPrice' ng-change="calcTax()" />
+                <div>
+                    网签价<input type='text' ng-model='netPrice' ng-change="calcTax()" />
+                </div>
+                <div>
+                    最低过户指导价<input type='text' ng-model='handoverPrice' ng-change="calcTax()" />
+                </div>
+
                 <h2>契税(万）：{{deedPrice}}</h2>
                 <label>
                     <input type='checkbox' ng-model='first' ng-change="calcTax()" />是否首套
@@ -38,8 +44,9 @@
                 <label>
                     <input type='checkbox' ng-model='biggerThan90' ng-change="calcTax()" />是否大于90平（非普通住宅）
                 </label>
-                <input type='text' ng-model='deedTax' ng-model='deedTax' />自定义税率(%)
-
+                <div>
+                    <input type='text' ng-model='deedTax' ng-model='deedTax' />自定义税率(%)
+                </div>
 
                 <h2>增值税及附加(万）：{{valueAddedPrice}}</h2>
                 <label>
@@ -47,12 +54,13 @@
                 </label>
                 <label>
                     原值<input type='text' ng-model='originPrice' ng-change="calcTaxByOriginPrice()" />
-                    业主购买单价（元每平）<input type='text' ng-model='originUnitPrice' ng-change="calcTax()" />
                 </label>
+                <div>
+                    业主购买单价（元每平）<input type='text' ng-model='originUnitPrice' ng-change="calcTax()" />
+                </div>
                 <label>
                     <input type='checkbox' ng-model='over2years' ng-change="calcTax()" />房产证下发是否满两年（满二）
                 </label>
-
 
                 <h2>个税(万）：{{incomePrice}}</h2>
                 <label>
