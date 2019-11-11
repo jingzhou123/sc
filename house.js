@@ -87,6 +87,7 @@ app.controller('formCtrl', ['$scope', function ($scope) {
         $scope.brokeragePrice = $scope.brokerage * $scope.netPrice / 100;
 
         $scope.allPrice = -(-$scope.deedPrice - $scope.valueAddedPrice - $scope.incomePrice)
+        $scope.packagePrice = -(-$scope.allPrice - $scope.brokeragePrice)
     }
 
     $scope.calcTaxByOriginPrice = function () {
